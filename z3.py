@@ -6,13 +6,10 @@ def datetime_info(date_str):
     try:
         date_obj = datetime.strptime(date_str, '%Y-%m-%d')
         
-        # Дата в формате 'ДД-ММ-ГГГГ'
         formatted_date = date_obj.strftime('%d-%m-%Y')
         
-        # День недели
         day_of_week = date_obj.strftime('%A')
         
-        # Количество дней до следующего года
         next_year_start = datetime(date_obj.year + 1, 1, 1)
         days_until_next_year = (next_year_start - date_obj).days
         
@@ -27,11 +24,9 @@ def datetime_info(date_str):
 # Задание 2: Чтение и запись в файл
 def write_and_read_file(filename, content):
     try:
-        # Запись в файл
         with open(filename, 'w') as file:
             file.write(content)
         
-        # Чтение файла
         with open(filename, 'r') as file:
             return file.read()
     except IOError:
@@ -40,7 +35,6 @@ def write_and_read_file(filename, content):
 # Задание 3: Работа с каталогами
 def list_files_in_directory(directory_path):
     try:
-        # Получение списка файлов в каталоге (без подкаталогов)
         return [f for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]
     except FileNotFoundError:
         return "Ошибка: указанный каталог не найден."
@@ -73,7 +67,7 @@ def file_stats(filepath):
     except FileNotFoundError:
         return "Ошибка: указанный файл не найден."
 
-# Работы с пользователем
+
 def main():
     # Задание 1
     date_str = input("Введите дату в формате 'YYYY-MM-DD': ")
